@@ -1,19 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
+import { connect } from 'react-redux';
+import {addUser} from '../usersDashboard/userActionCreator';
 
-export default function FormComponent() {
+function FormComponent({ addUser }) {
     const [user, setUser] = useState({fname: "", lname: "", age: 0, gender: "", likes: 0});
 
     function handleChange(event){
         const {name, value} = event.target;
-        setUser({...user, [name]: value});
+        setUser({...user, [name]: name === 'age' ? parseInt(value) : value});
     }
 
-    function handleForm(event){
-        console.log(user);
+    function handleForm(event) {
         event.preventDefault();
-        setUser({fname: "", lname: "", age: 0, gender: "", likes: 0});
+        addUser(user);
+        setUser({ fname: "", lname: "", age: "", gender: "", likes: 0 });
     }
+    
 
   return (
     <div className='form--container'>
@@ -49,6 +52,7 @@ export default function FormComponent() {
             </div>
 
             <div className="form--container--inputs">
+                <label htmlFor="gender">Gender:</label>
                 <select name="gender" value={user.gender} onChange={handleChange}>
                     <option>Select an option</option>
                     <option value="Male">Male</option>
@@ -61,3 +65,11 @@ export default function FormComponent() {
     </div>
   )
 }
+
+const mapDispatchToProps = dispatch => {
+    return{
+        addUser : (user) => dispatch(addUser(user))
+    }
+}
+
+export default connect (null, mapDispatchToProps)(FormComponent);

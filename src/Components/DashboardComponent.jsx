@@ -1,11 +1,23 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
-function DashboardComponent() {
+function DashboardComponent({ DashUsers }) {
   return (
-    <div>
-      
+    <div className='dash--container'>
+      {DashUsers.map((user) => {
+        <li key={user.id}>
+          <h3>{user.fname}</h3>
+          <h3>{user.lname}</h3>
+        </li>
+      })}
     </div>
   )
 }
 
-export default DashboardComponent
+const mapStateToProps = state => {
+  return{
+    DashUsers : state.userReducer
+  }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(DashboardComponent);
