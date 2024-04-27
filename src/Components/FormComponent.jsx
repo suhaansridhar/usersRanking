@@ -10,6 +10,7 @@ export default function FormComponent() {
     }
 
     function handleForm(event){
+        console.log(user);
         event.preventDefault();
         setUser({fname: "", lname: "", age: 0, gender: "", likes: 0});
     }
@@ -23,7 +24,9 @@ export default function FormComponent() {
                     value={user.fname} 
                     placeholder="Enter your First Name" 
                     onChange={handleChange}
-                    name = "fname" />
+                    name = "fname" 
+                    autoFocus
+                    />
             </div>
 
             <div className="form--container--inputs">
