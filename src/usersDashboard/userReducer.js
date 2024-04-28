@@ -7,6 +7,9 @@ const userReducer = (state = initialState, action) => {
         case ADD_USER:
             return[...state, action.payload]
 
+        //since all the user information are stored in the form of objects in an array,
+        //we will use the map functionality and then return the object if it is not the user
+
         case INCREMENT:
             return state.map((user) => {
                 if(user.id === action.payload.userid){

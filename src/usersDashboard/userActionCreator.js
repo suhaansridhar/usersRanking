@@ -1,14 +1,14 @@
 export function inc(userid){
     return{
         type: 'INCREMENT',
-        payload: userid
+        payload: {userid}
     }
 }
 
 export function dec(userid){
     return{
         type: 'DECREMENT',
-        payload: userid
+        payload: {userid}
     }
 }
 
