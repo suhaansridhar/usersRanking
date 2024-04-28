@@ -1,20 +1,23 @@
 import React from 'react'
+import { useRef } from 'react';
 import { useState } from 'react'
 import { connect } from 'react-redux';
-import {addUser} from '../usersDashboard/userActionCreator';
+import { addUser } from '../usersDashboard/userActionCreator';
 
 function FormComponent({ addUser }) {
     const [user, setUser] = useState({fname: "", lname: "", age: 0, gender: "", likes: 0});
+    const inputRef = useRef(null);
 
     function handleChange(event){
         const {name, value} = event.target;
-        setUser({...user, [name]: name === 'age' ? parseInt(value) : value});
+        setUser({...user, [name]: name === 'age' ? parseInt(value) : value, id: Date.now()});
     }
 
     function handleForm(event) {
         event.preventDefault();
         addUser(user);
         setUser({ fname: "", lname: "", age: "", gender: "", likes: 0 });
+        inputRef.current.focus();
     }
     
 
@@ -29,6 +32,7 @@ function FormComponent({ addUser }) {
                     onChange={handleChange}
                     name = "fname" 
                     autoFocus
+                    ref={inputRef}
                     />
             </div>
 

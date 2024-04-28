@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 function DashboardComponent({ DashUsers }) {
   return (
     <div className='dash--container'>
-      {DashUsers.map((user) => {
+      <h1>DashBoard</h1>
+      {DashUsers.map((user) => (
         <li key={user.id}>
           <h3>{user.fname}</h3>
           <h3>{user.lname}</h3>
         </li>
-      })}
+        ))}
     </div>
   )
 }
@@ -20,4 +21,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(DashboardComponent);
+export default connect (mapStateToProps, null)(DashboardComponent);
