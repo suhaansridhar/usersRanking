@@ -19,7 +19,6 @@ function FormComponent({ addUser }) {
         setUser({ fname: "", lname: "", age: "", gender: "", likes: 0 });
         inputRef.current.focus();
     }
-    
 
   return (
     <div className='form--container'>
@@ -32,8 +31,7 @@ function FormComponent({ addUser }) {
                     onChange={handleChange}
                     name = "fname" 
                     autoFocus
-                    ref={inputRef}
-                    />
+                    ref={inputRef}/>
             </div>
 
             <div className="form--container--inputs">
@@ -52,6 +50,7 @@ function FormComponent({ addUser }) {
                     name="age"
                     onChange={handleChange}
                     placeholder="Enter your age"
+                    className='input--container--age'
                     />
             </div>
 
@@ -64,7 +63,7 @@ function FormComponent({ addUser }) {
                 </select>
             </div>
 
-            <button type='submit'>Submit</button>
+            <button type='submit' className='submit--button'>Submit</button>
         </form>
     </div>
   )

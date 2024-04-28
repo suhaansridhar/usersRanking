@@ -1,12 +1,14 @@
-export function inc(){
+export function inc(userid){
     return{
-        type: 'INCREMENT'
+        type: 'INCREMENT',
+        payload: userid
     }
 }
 
-export function dec(){
+export function dec(userid){
     return{
-        type: 'DECREMENT'
+        type: 'DECREMENT',
+        payload: userid
     }
 }
 

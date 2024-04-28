@@ -8,14 +8,22 @@ const userReducer = (state = initialState, action) => {
             return[...state, action.payload]
 
         case INCREMENT:
-            return{
-                ...state,
-            }
+            return state.map((user) => {
+                if(user.id === action.payload.userid){
+                    return {...user, likes: user.likes + 1}
+                }
+
+                return user;
+            })
 
         case DECREMENT:
-            return{
-                ...state,
-            }
+            return state.map((user) => {
+                if(user.id === action.payload.userid){
+                    return {...user, likes: user.likes - 1}
+                }
+
+                return user;
+            })
 
         default:
             return state

@@ -5,11 +5,37 @@
 }
 
 body{
-  background-color: black;
-  color: white;
+  color: black;
 }
 
 .app--container{
   display: flex;
   justify-content: space-between;
+}
+
+.form--container{
+  border: 0.1rem solid black;
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+.form--container--inputs{
+  display: flex;
+}
+
+input{
+  border: 0.1rem solid black;
+  padding: 0.12rem;
+  border-radius: 0.1rem;
+}
+
+.input--container--age{
+  border: none;
+}
+
+.submit--button{
+  background-color: green;
+  padding: 0.2rem;
+  border-radius: 0.1rem;
+  cursor: pointer;
 }
