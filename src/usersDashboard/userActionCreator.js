@@ -18,3 +18,10 @@ export function addUser(user){
         payload: user
     }
 }
+
+export function remove(userid){
+    return{
+        type: 'REMOVE_USER',
+        payload: {userid}
+    }
+}

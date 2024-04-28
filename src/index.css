@@ -4,8 +4,33 @@
   box-sizing: border-box;
 }
 
+.dash--container{
+  border: 0.1rem solid black;
+  width: 49%;
+  padding: 1rem;
+  list-style: none;
+  background-color: greenyellow;
+}
+
+.dash--container--cards{
+  border: 0.1rem solid black;
+  padding: 1rem;
+  border-radius: 0.1rem;
+  background-color: pink;
+  margin-top: 15px;
+}
+
+.dash--container--cards button{
+  padding: 0.25rem;
+  border-radius: 0.4rem;
+  margin: 3px;
+  border: 0.1rem solid black;
+  cursor: pointer;
+}
+
 body{
   color: black;
+  background-color: aqua;
 }
 
 .app--container{
@@ -17,10 +42,33 @@ body{
   border: 0.1rem solid black;
   padding: 1rem;
   border-radius: 0.2rem;
+  width: 49%;
+  background-color: greenyellow;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
 
 .form--container--inputs{
   display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.form--container--inputs input{
+  width: 70%;
+  outline: none;
+}
+
+.form--container--inputs label{
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.form--container--inputs select{
+  width: 49%;
+  text-align: center;
+  background-color: whitesmoke;
 }
 
 input{
@@ -29,13 +77,13 @@ input{
   border-radius: 0.1rem;
 }
 
-.input--container--age{
-  border: none;
-}
-
 .submit--button{
   background-color: green;
-  padding: 0.2rem;
-  border-radius: 0.1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
   cursor: pointer;
+  margin-top: 10px;
+  margin-left: 45%;
+  font-size: 1.6rem;
+  color: white;
 }

@@ -1,4 +1,4 @@
-import { ADD_USER, DECREMENT, INCREMENT } from "./userActions";
+import { ADD_USER, DECREMENT, INCREMENT, REMOVE_USER } from "./userActions";
 
 const initialState = [];
 
@@ -27,6 +27,9 @@ const userReducer = (state = initialState, action) => {
 
                 return user;
             })
+
+        case REMOVE_USER:
+            return state.filter(user => user.id !== action.payload.userid)
 
         default:
             return state
