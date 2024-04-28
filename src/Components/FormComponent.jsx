@@ -10,11 +10,19 @@ function FormComponent({ addUser }) {
 
     function handleChange(event){
         const {name, value} = event.target;
+        if(user.age <= 0 && parseInt(value) <= 0){
+            alert("Age should be greater than 0");
+            return;
+        }
         setUser({...user, [name]: name === 'age' ? parseInt(value) : value, id: Date.now()});
     }
 
     function handleForm(event) {
         event.preventDefault();
+        if(user.age <= 0){
+            alert("Age should be greater than 0");
+            return;
+        }
         addUser(user);
         setUser({ fname: "", lname: "", age: "", gender: "", likes: 0 });
         inputRef.current.focus();
